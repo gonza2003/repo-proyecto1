@@ -1,3 +1,4 @@
+/* Reset básico (puedes considerar Normalize.css o un reset más completo) */
 *{
     margin:0 ;
     padding: 0;
@@ -13,14 +14,16 @@ body {
 }
 
 img{
-    width: 150px;
+    width: 150px; /* El tamaño de las imágenes dentro de las tarjetas ahora está más controlado por Bootstrap */
     height: auto;
+    display: block; /* Mantenemos el display block para evitar espacios extra */
 }
 
 .rrss {
     width: 35px; /* Reduce el tamaño de los iconos en general */
     height: auto;
-    display: block; /* Asegura que se comporten como bloques para el margin */
+    display: inline-block; /* Para que se alineen horizontalmente en el footer */
+    margin: 0 5px; /* Espacio entre los iconos */
 }
 
 a {
@@ -62,9 +65,9 @@ a {
     color: inherit;
 }
 
-.container {
-    max-width: 960px;
-    margin: 20px auto;
+.container { /* Ahora Bootstrap maneja el ancho máximo y el centrado */
+    /* max-width: 960px; */
+    /* margin: 20px auto; */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -180,8 +183,8 @@ footer h2 {
 }
 
 footer a {
-    margin: 0 5px; /* Espacio entre los iconos */
-    display: block; /* Permite aplicar márgenes correctamente */
+    /* margin: 0 5px; Ahora manejado por .rrss */
+    display: inline-block; /* Permite aplicar márgenes correctamente */
 }
 
 .contact-section {
@@ -243,15 +246,16 @@ main h1 {
     padding: 0 20px; /* Añade un poco de padding horizontal para pantallas pequeñas */
 }
 
+/* Estilos para la sección .decada - ahora Bootstrap maneja la grilla */
 .decada {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* background-color: white; */ /* Bootstrap card tiene su propio fondo */
+    padding: 20px 0; /* Ajustamos el padding vertical */
+    /* border-radius: 8px; */ /* Bootstrap card tiene su propio border-radius */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */ /* Bootstrap card tiene su propia sombra */
     margin-bottom: 30px;
-    display: grid; /* Usamos Grid para la disposición de las camisetas */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dos columnas como mínimo en pantallas medianas */
-    gap: 20px;
+    /* display: grid; */ /* Ahora Bootstrap maneja el display grid */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */ /* Ahora Bootstrap maneja las columnas */
+    gap: 20px; /* El gap ahora lo maneja la clase .g-4 de Bootstrap */
 }
 
 .decada h2 {
@@ -260,7 +264,7 @@ main h1 {
     margin-bottom: 15px; /* Aumenta un poco el margen inferior del título */
     border-bottom: 2px solid #ddd;
     padding-bottom: 8px; /* Aumenta un poco el padding inferior del título */
-    grid-column: 1 / -1; /* El título ocupa todo el ancho del grid */
+    grid-column: 1 / -1; /* El título ocupa todo el ancho del grid (si quedara algún grid) */
     text-align: center; /* Centra el título de la década */
 }
 
@@ -268,24 +272,25 @@ main h1 {
     color: #555;
     margin-bottom: 20px;
     text-align: center;
-    grid-column: 1 / -1; /* El párrafo ocupa todo el ancho del grid */
+    grid-column: 1 / -1; /* El párrafo ocupa todo el ancho del grid (si quedara algún grid) */
 }
 
+/* Estilos para la .camiseta - ahora dentro de la .card de Bootstrap */
 .camiseta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 6px;
+    /* display: flex; */ /* La disposición flex ahora la da Bootstrap */
+    /* flex-direction: column; */ /* La dirección de la flexbox ahora la da Bootstrap */
+    /* align-items: center; */ /* La alineación ahora la da Bootstrap */
+    text-align: center; /* Centrado del texto dentro de la tarjeta */
+    /* border: 1px solid #ddd; */ /* La tarjeta de Bootstrap tiene su propio borde */
+    padding: 0; /* El padding ahora lo da el .card-body de Bootstrap */
+    /* border-radius: 6px; */ /* La tarjeta de Bootstrap tiene su propio border-radius */
 }
 
 .camiseta img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
-    border-radius: 4px;
+    margin-bottom: 10px; /* Puede que necesites ajustar esto según el espaciado de la card-body */
+    border-radius: 4px; /* Si quieres un borde redondeado en la imagen dentro de la card */
 }
 
 .camiseta h3 {
@@ -300,7 +305,7 @@ main h1 {
     font-size: 0.85em; /* Reduce ligeramente el tamaño de la descripción */
 }
 
-/* Estilos específicos para el carrusel */
+/* Estilos específicos para el carrusel - se mantienen igual */
 #carouselExampleControls {
     /* Eliminamos la altura máxima fija para que se ajuste al contenido */
 }
@@ -369,6 +374,12 @@ main h1 {
     margin-bottom: 5px;
 }
 
+.card-img-top-galeria {
+    max-height: 200px; /* Ajusta este valor según lo necesites */
+    width: auto; /* Para mantener la proporción */
+    object-fit: contain; /* Para que la imagen se ajuste sin recortar */
+}
+
 /* Ocultar el texto en pantallas pequeñas */
 @media (max-width: 768px) {
     .carousel-caption {
@@ -419,25 +430,7 @@ main h1 {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Una sola columna en móviles */
         gap: 10px; /* Reduce el espacio en móviles */
     }
-}
 
-/* Media query para pantallas medianas (entre 601px y 992px) */
-@media (min-width: 601px) and (max-width: 992px) {
-    .shirts-list {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Aumenta el ancho mínimo en tablets */
-        gap: 15px;
-    }
-}
-
-/* Para pantallas más grandes (desde 993px en adelante), mantenemos el estilo original o podemos ajustarlo si es necesario */
-@media (min-width: 993px) {
-    .shirts-list {
-        gap: 20px; /* Aseguramos un espacio adecuado en escritorios */
-    }
-}
-
-/* Media query para pantallas más pequeñas (hasta 600px) */
-@media (max-width: 600px) {
     footer {
         flex-direction: column; /* Apila los elementos verticalmente */
         text-align: center; /* Centra el texto */
@@ -457,20 +450,6 @@ main h1 {
     .rrss {
         width: 40px; /* Aumenta ligeramente el tamaño de los iconos en móviles */
     }
-}
 
-/* Media query para pantallas más pequeñas (hasta 600px) */
-@media (max-width: 600px) {
     .decada {
-        grid-template-columns: 1fr; /* Una sola columna en móviles */
-        gap: 15px;
-    }
-}
-
-/* Media query para pantallas medianas (entre 601px y 992px) */
-@media (min-width: 601px) and (max-width: 992px) {
-    .decada {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
-        gap: 20px;
-    }
-}
+        /* grid-template-columns: 1fr; */ /* Ahora Bootstrap maneja esto con row-cols-1 */
