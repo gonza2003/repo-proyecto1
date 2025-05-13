@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>¨
+<html lang="es">
+<head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style/estilos.css"> 
+    <link rel="stylesheet" href="./style/estilos.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camisetas Boca Juniors Retro- inicio</title>
@@ -10,7 +10,7 @@
 <body>
     <header>
         <a href="index.html">
-            <img src="./img/boca-juniors-seeklogo.png" alt="Logo"class="logo"> 
+            <img src="./img/boca-juniors-seeklogo.png" alt="Logo"class="logo">
         </a>
         <h1>Camisetas Boca Juniors retro</h1>
         <nav>
@@ -22,7 +22,7 @@
                     <a href="./pages/galeria.html">Galeria</a>
                 </li>
                 <li>
-                    <a href="./pages/Contacto.html">Contacto</a>
+                    <a href="./pages/contacto.html">Contacto</a>
                 </li>
                 <li>
                     <a href="./pages/quienes-somos.html">Quienes Somos</a>
@@ -31,41 +31,66 @@
         </nav>
     </header>
     <main>
-        <section class="historical-shirts">
-            <h2>Camisetas Históricas</h>
-            <ul class="shirts-list">
-                <li class="shirt-item">
-                    <a href="./pages/tienda.html" class="shirt-link">
-                        <img src="./img/boca1977.jpg" alt="Camiseta Histórica 1" class="historical-shirt-img">
-                    </a>
-                </li>
-                <li class="shirt-item">
-                    <a href="./pages/tienda.html" class="shirt-link">
-                        <img src="./img/boca1978.jpg" alt="Camiseta Histórica 2" class="historical-shirt-img">
-                    </a>
-                </li>
-                <li class="shirt-item">
-                    <a href="./pages/tienda.html" class="shirt-link">
-                        <img src="./img/boca1981.jpg" alt="Camiseta Histórica 3" class="historical-shirt-img">
-                    </a>
-                </li>
-                </ul>
-        </section>
-    </main>
-    
+    <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="./pages/tienda.html">
+                    <img src="./img/boca1977.jpg" class="d-block w-100" alt="Camiseta Boca 1977">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Camiseta Boca Juniors 1977</h5>
+                        <p>Un año histórico para el club.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="./pages/tienda.html">
+                    <img src="./img/boca1978.jpg" class="d-block w-100" alt="Camiseta Boca 1978">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Camiseta Boca Juniors 1978</h5>
+                        <p>Otra joya de colección.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="./pages/tienda.html">
+                    <img src="./img/boca1981.jpg" class="d-block w-100" alt="Camiseta Boca 1981">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Camiseta Boca Juniors 1981</h5>
+                        <p>La magia de Maradona en su esplendor.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <section class="mt-4 text-center">
+        <h3>Revive la Historia Xeneize</h3>
+        <p class="lead">Cada camiseta retro cuenta una historia de pasión, gloria y momentos inolvidables para los hinchas de Boca Juniors. Explora los modelos que marcaron una época y lleva contigo un pedazo de la rica historia del club.</p>
+        <a href="./pages/galeria.html" class="btn btn-outline-primary mt-2">Ver Galería Completa</a>
+    </section>
+</main>
+
     <footer id="footer">
-        <h2>Derechos reservados</h2> 
+        <h2>Derechos reservados</h2>
         <a href="https://www.facebook.com/profile.php?id=100008217425834&locale=es_LA" target="_blank">
-            <img src="./img/facebook.png" alt="Facebook"class="rrss">
+            <img src="./img/facebook.png" alt="Facebook" class="rrss">
         </a>
         <a href="https://www.instagram.com/gonzamungiello/" target="_blank">
-            <img src="./img/instagram.png" alt="Instagram"class="rrss">
+            <img src="./img/instagram.png" alt="Instagram" class="rrss">
         </a>
         <a href="https://x.com/MungielloGonza" target="_blank">
-            <img src="./img/twitter.png" alt="Twitter"class="rrss">
+            <img src="./img/twitter.png" alt="Twitter" class="rrss">
         </a>
         <a href="https://wa.me/542234391127" target="_blank">
-            <img src="./img/whatsapp.png" alt="Whatsapp"class="rrss">
+            <img src="./img/whatsapp.png" alt="Whatsapp" class="rrss">
         </a>
     </footer>
 
