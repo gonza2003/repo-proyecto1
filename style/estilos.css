@@ -143,6 +143,14 @@ header nav ul li a:hover {
     border: 2px solid black;
 }
 
+.product-link {
+    display: flex; /* Convierte el enlace en un contenedor Flexbox */
+    flex-direction: column; /* Alinea los elementos internos verticalmente */
+    align-items: center; /* Centra los elementos internos horizontalmente */
+    text-decoration: none; /* Elimina la decoración de enlace */
+    color: inherit; /* Hereda el color del texto del padre */
+}
+
 .product-card img {
     max-width: 100%;
     height: auto;
@@ -203,9 +211,12 @@ header nav ul li a:hover {
     border: 1px solid #eee;
     border-radius: 6px;
     padding: 15px;
-    text-align: center;
-    width: 300px; /* Ancho fijo para cada producto próximo (ajusta según necesites) */
-    margin-bottom: 20px; /* Espacio entre los productos en la dirección del flujo */
+    text-align: center; /* Esto ya centra el texto */
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex; /* Convierte el div en un contenedor Flexbox */
+    flex-direction: column; /* Alinea los elementos internos verticalmente */
+    align-items: center; /* Centra los elementos internos horizontalmente */
     border: 2px solid black;
 }
 
@@ -214,6 +225,7 @@ header nav ul li a:hover {
     height: auto;
     margin-bottom: 10px;
     border-radius: 4px;
+    align-self: center; /* Asegura que la imagen esté centrada dentro del flex container */
 }
 
 .proximo-producto h3 {
@@ -282,10 +294,23 @@ footer a {
     text-align: center;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.contact-form .button {
+    display: inline-block;
+    padding: 12px 25px; /* Aumentamos el padding para hacerlo más grande */
+    background-color: #007bff; /* Un azul más llamativo */
+    color: #fff;
+    border: none; /* Eliminamos el borde predeterminado */
+    border-radius: 8px; /* Bordes más redondeados */
+    cursor: pointer;
+    font-size: 1.1em; /* Un poco más grande la fuente */
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-form .button:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el mouse */
 }
 
 .form-group {
