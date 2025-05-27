@@ -1,0 +1,648 @@
+/* ===========================
+   IMPORTAR MÓDULOS DE SASS
+  =========================== */
+// @use "sass:color"; // No es necesario para darken()
+
+/* ===========================
+   VARIABLES
+  =========================== */
+$font-family: sans-serif;
+$line-height: 1.6;
+$background-color: #f4f4f4;
+$text-color: #333;
+$primary-color: #005691;
+$secondary-color: #e4002b;
+$border-color: #ddd;
+$white-color: #fff;
+$shadow-color: rgba(0, 0, 0, 0.05);
+$border-radius: 5px;
+
+/* ===========================
+   MIXINS Y EXTENDS
+  =========================== */
+@mixin boton($bg, $color) {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: $bg;
+  color: $color;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+%tarjeta-base {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $shadow-color;
+  background: $white-color;
+  padding: 15px;
+}
+
+/* ===========================
+   ANIMACIONES
+  =========================== */
+@keyframes logo-bounce {
+  0%, 100% { transform: scale(1);}
+  50% { transform: scale(1.15) rotate(-5deg);}
+}
+
+/* ===========================
+   RESET Y ESTILOS GENERALES
+  =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    line-height: $line-height;
+    background-color: $background-color;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s;
+    &:hover {
+      animation: logo-bounce 0.6s;
+    }
+}
+
+.rrss {
+    width: 35px;
+    height: auto;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+/* ===========================
+   SECCIÓN HISTÓRICA DE CAMISETAS
+  =========================== */
+.historical-shirts {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .shirts-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .historical-shirt-img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        box-shadow: 0 2px 4px $shadow-color;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .shirt-link {
+        text-decoration: none;
+        display: block;
+        color: inherit;
+    }
+}
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+  =========================== */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: $white-color;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+/* ===========================
+   HEADER Y NAVEGACIÓN
+  =========================== */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: $primary-color;
+    color: $white-color;
+    border-radius: 6px;
+
+    h1 {
+        margin: 0 10px;
+        font-size: 1.8em;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    nav {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+
+            li {
+                margin-left: 15px;
+
+                a {
+                    color: $white-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ===========================
+   SECCIÓN TIENDA DE PRODUCTOS
+  =========================== */
+.products {
+    display: block;
+
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        .product-card {
+            @extend %tarjeta-base;
+            border: 2px solid black;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .product-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+
+                img {
+                    max-width: 220px;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+            }
+
+            h3 {
+                margin-top: 0;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+            }
+
+            .price {
+                font-weight: bold;
+                color: $secondary-color;
+                margin-bottom: 10px;
+            }
+
+            .button {
+                @include boton($primary-color, $white-color);
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
+                }
+            }
+        }
+    }
+}
+
+/* ===========================
+   SECCIÓN "PRÓXIMAMENTE"
+  =========================== */
+.proximamente {
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px $shadow-color;
+
+    h2 {
+        color: $primary-color;
+        margin-bottom: 15px;
+    }
+
+    .proximos-productos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+
+        .proximo-producto {
+            @extend %tarjeta-base;
+            border: 2px solid black;
+            text-align: center;
+            width: 300px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                max-width: 220px;
+                height: auto;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                align-self: center;
+            }
+
+            h3 {
+                margin-top: 0;
+                margin-bottom: 5px;
+                font-size: 1.1em;
+                color: $text-color;
+            }
+
+            .descripcion-proximo {
+                color: #666;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            .etiqueta-proximo {
+                display: inline-block;
+                padding: 8px 12px;
+                background-color: #ffc107;
+                color: $text-color;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 0.85em;
+            }
+        }
+    }
+}
+
+/* ===========================
+   DETALLE DE CAMISETA
+  =========================== */
+.detalle-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
+}
+
+/* ===========================
+   FOOTER
+  =========================== */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: $white-color;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 0.9em;
+
+    h2 {
+        margin-right: 20px;
+        font-size: 1em;
+    }
+
+    a {
+        display: inline-block;
+    }
+}
+
+/* ===========================
+   SECCIÓN CONTACTO
+  =========================== */
+.contact-section {
+    background-color: $white-color;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    .contact-intro {
+        color: #555;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .contact-form {
+        .button {
+            @include boton(#007bff, $white-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            &:hover {
+                background-color: darken(#007bff, 10%);
+            }
+        }
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        padding: 0;
+        margin: 0;
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: $text-color;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+}
+
+/* ===========================
+   TÍTULOS GENERALES
+  =========================== */
+main h1 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+/* ===========================
+   SECCIÓN POR DÉCADA (GALERÍA)
+  =========================== */
+.decada {
+    padding: 20px 0;
+    margin-bottom: 30px;
+    gap: 20px;
+
+    h2 {
+        color: $primary-color;
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid $border-color;
+        padding-bottom: 8px;
+        text-align: center;
+    }
+
+    p {
+        color: #555;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .camiseta {
+        text-align: center;
+        padding: 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1em;
+        }
+
+        .descripcion {
+            color: #666;
+            font-size: 0.85em;
+        }
+    }
+}
+
+/* ===========================
+   CAROUSEL (GALERÍA)
+  =========================== */
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    height: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease-in-out;
+    opacity: 0;
+
+    &.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    img {
+        max-height: 400px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+        object-fit: contain;
+        margin: 0 auto;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%) brightness(0%);
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $white-color;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    h5 {
+        margin-bottom: 5px;
+    }
+}
+
+.card-img-top-galeria {
+    max-height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ===========================
+   QUIÉNES SOMOS
+  =========================== */
+.img-quienes-somos {
+    max-width: 500px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+.frase-quienes-somos {
+    margin: 20px 0;
+    font-style: italic;
+    color: $primary-color;
+    text-align: center;
+}
+
+/* ===========================
+   MEDIA QUERIES (RESPONSIVE)
+  =========================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+
+        a {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+
+            li {
+                margin: 5px 0;
+            }
+        }
+    }
+
+    .carousel-caption {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .shirts-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+
+        h2 {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        a {
+            margin: 5px 0;
+            display: inline-block;
+        }
+    }
+
+    .rrss {
+        width: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .proximos-productos {
+        flex-direction: column;
+        align-items: center;
+
+        .proximo-producto {
+            width: 80%;
+        }
+    }
+}
+
+/* ===========================
+   BUCLE PARA CLASES DE COLOR DE FONDO
+  =========================== */
+$colores: (azul: #005691, rojo: #e4002b, amarillo: #ffc107);
+
+@each $nombre, $valor in $colores {
+  .bg-#{$nombre} {
+    background-color: $valor !important;
+  }
+}
