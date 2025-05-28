@@ -1,7 +1,7 @@
 # Camisetas Boca Juniors Retro
 
 Sitio web realizado para el curso de Coderhouse. Incluye tienda, galería, contacto y sección "quiénes somos".  
-Tecnologías: HTML5, CSS3, Bootstrap, Flexbox y Grid.
+Tecnologías: HTML5, CSS3, SCSS, Bootstrap, Flexbox y Grid.
 
 ## Cómo navegar
 - `index.html`: Página principal
