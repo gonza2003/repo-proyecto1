@@ -129,6 +129,9 @@ a {
    CONTENEDOR PRINCIPAL
   =========================== */
 .container {
+    width: 100%;
+    max-width: 960px;
+    box-sizing: border-box;
     max-width: 960px;
     margin: 20px auto;
     padding: 20px;
@@ -542,7 +545,7 @@ main h1 {
    QUIÉNES SOMOS
   =========================== */
 .img-quienes-somos {
-    max-width: 500px;
+    max-width: 100%;
     display: block;
     margin: 20px auto;
     border-radius: 8px;
@@ -555,6 +558,15 @@ main h1 {
     text-align: center;
 }
 
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    word-break: break-word;
+}
+
 /* ===========================
    MEDIA QUERIES (RESPONSIVE)
   =========================== */
@@ -562,26 +574,59 @@ main h1 {
     header {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
 
-        a {
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-
-        nav ul {
-            flex-direction: column;
-            align-items: center;
-
-            li {
-                margin: 5px 0;
-            }
-        }
+    h1 {
+        font-size: 1.5em;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
     }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+    .container {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+}
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 15px 0;
+
+    h2 {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    a {
+        margin: 5px 0;
+        display: inline-block;
+    }
+}
 
     .carousel-caption {
         display: none;
@@ -597,6 +642,20 @@ main h1 {
     .product-list {
         grid-template-columns: 1fr;
         gap: 10px;
+    }
+
+    .proximos-productos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-card,
+    .proximo-producto {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+    .container {
+        padding: 10px;
     }
 
     footer {
